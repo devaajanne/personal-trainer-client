@@ -22,16 +22,16 @@ export default function App() {
             <Button component={Link} to='/' color='inherit'>
               Home
             </Button>
-            <Button component={Link} to='/customerlist' color='inherit'>
+            <Button component={Link} to='/customers' color='inherit'>
               Customers
             </Button>
-            <Button component={Link} to='/traininglist' color='inherit'>
+            <Button component={Link} to='/trainings' color='inherit'>
               Trainings
             </Button>
-            <Button component={Link} to='/trainingcalendar' color='inherit'>
+            <Button component={Link} to='/calendar' color='inherit'>
               Calendar
             </Button>
-            <Button component={Link} to='/trainingstatistics' color='inherit'>
+            <Button component={Link} to='/statistics' color='inherit'>
               Statistics
             </Button>
           </Toolbar>

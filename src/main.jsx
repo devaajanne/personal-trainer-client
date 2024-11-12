@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.jsx";
 import Home from "./components/Home.jsx";
-import CustomerList from "./components/CustomerList.jsx";
-import TrainingList from "./components/TrainingList.jsx";
-import TrainingCalendar from "./components/TrainingCalendar.jsx";
-import TrainingStatistics from "./components/TrainingStatistics.jsx";
+import Customers from "./components/Customers.jsx";
+import Trainings from "./components/Trainings.jsx";
+import Calendar from "./components/Calendar.jsx";
+import Statistics from "./components/Statistics.jsx";
 import Error from "./components/Error.jsx";
 
 import "./Stylings/index.css";
@@ -23,20 +23,20 @@ const router = createBrowserRouter([
         index: true,
       },
       {
-        path: "/customerlist",
-        element: <CustomerList />,
+        path: "/customers",
+        element: <Customers />,
       },
       {
-        path: "/traininglist",
-        element: <TrainingList />,
+        path: "/trainings",
+        element: <Trainings />,
       },
       {
-        path: "/trainingcalendar",
-        element: <TrainingCalendar />,
+        path: "/calendar",
+        element: <Calendar />,
       },
       {
-        path: "/trainingstatistics",
-        element: <TrainingStatistics />,
+        path: "/statistics",
+        element: <Statistics />,
       },
     ],
   },
