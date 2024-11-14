@@ -49,4 +49,13 @@ const fetchCustomerTrainings = async () => {
   }
 };
 
-export { fetchCustomers, fetchCustomerTrainings, addCustomer, updateCustomer, deleteCustomer};
+export {
+  // Export customer API requests
+  fetchCustomers,
+  addCustomer,
+  updateCustomer,
+  deleteCustomer,
+
+  // Export training API requests
+  fetchCustomerTrainings,
+};
