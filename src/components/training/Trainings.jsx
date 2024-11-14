@@ -1,6 +1,6 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
-import { fetchCustomerTrainings } from "../utils/api_requests";
+import { fetchCustomerTrainings } from "../../utils/api_requests";
 import dayjs from "dayjs";
 
 import "ag-grid-community/styles/ag-grid.css";
@@ -52,10 +52,7 @@ export default function Trainings() {
     <div>
       <p>Trainings</p>
       <div className='ag-theme-material' style={{ width: 1500, height: 1500 }}>
-        <AgGridReact
-          rowData={customerTrainings}
-          columnDefs={columnDefs}
-        />
+        <AgGridReact rowData={customerTrainings} columnDefs={columnDefs} />
       </div>
     </div>
   );

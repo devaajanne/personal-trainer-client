@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import Button from "@mui/material/Button";
 
-import { deleteCustomer } from "../utils/api_requests";
+import { deleteCustomer } from "../../utils/api_requests";
 
 export default function DeleteCustomer({ customerURL, reloadCustomers }) {
   const [open, setOpen] = useState(false);

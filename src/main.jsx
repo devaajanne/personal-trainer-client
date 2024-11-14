@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.jsx";
 import Home from "./components/Home.jsx";
-import Customers from "./components/Customers.jsx";
-import Trainings from "./components/Trainings.jsx";
+import Customers from "./components/customer/Customers.jsx";
+import Trainings from "./components/training/Trainings.jsx";
 import Calendar from "./components/Calendar.jsx";
 import Statistics from "./components/Statistics.jsx";
 import Error from "./components/Error.jsx";

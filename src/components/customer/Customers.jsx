@@ -1,6 +1,6 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
-import { fetchCustomers } from "../utils/api_requests";
+import { fetchCustomers } from "../../utils/api_requests";
 import AddCustomer from "./AddCustomer";
 import UpdateCustomer from "./UpdateCustomer";
 import DeleteCustomer from "./DeleteCustomer";

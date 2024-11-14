@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Dialog, DialogTitle, DialogActions } from "@mui/material";
 import Button from "@mui/material/Button";
 import CustomerDialog from "./CustomerDialog";
-import { updateCustomer } from "../utils/api_requests";
+import { updateCustomer } from "../../utils/api_requests";
 
 export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
   const [customer, setCustomer] = useState(currentCustomer);
