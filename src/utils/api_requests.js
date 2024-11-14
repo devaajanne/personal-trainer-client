@@ -12,6 +12,14 @@ const fetchCustomers = async () => {
   }
 };
 
+const addCustomer = async (customer) => {
+  try {
+    axios.post(API_URL + "/customers", customer);
+  } catch (error) {
+    console.log("addCustomer error: " + error);
+  }
+};
+
 const fetchCustomerTrainings = async () => {
   try {
     const response = await axios.get(API_URL + "/gettrainings");
@@ -21,4 +29,4 @@ const fetchCustomerTrainings = async () => {
   }
 };
 
-export { fetchCustomers, fetchCustomerTrainings };
+export { fetchCustomers, fetchCustomerTrainings, addCustomer };
