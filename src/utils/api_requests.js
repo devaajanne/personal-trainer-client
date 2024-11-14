@@ -20,6 +20,18 @@ const addCustomer = async (customer) => {
   }
 };
 
+const updateCustomer = async (customerURL, customer) => {
+  const config = {
+    headers: { "Content-Type": "application/json" },
+  };
+
+  try {
+    await axios.put(customerURL, customer, config);
+  } catch (error) {
+    console.log("updateCustomer error: " + error);
+  }
+};
+
 const fetchCustomerTrainings = async () => {
   try {
     const response = await axios.get(API_URL + "/gettrainings");
@@ -29,4 +41,4 @@ const fetchCustomerTrainings = async () => {
   }
 };
 
-export { fetchCustomers, fetchCustomerTrainings, addCustomer };
+export { fetchCustomers, fetchCustomerTrainings, addCustomer, updateCustomer };
