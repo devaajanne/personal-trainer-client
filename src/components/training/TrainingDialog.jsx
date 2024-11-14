@@ -1,0 +1,51 @@
+import { TextField, DialogContent } from "@mui/material";
+
+export default function TrainingDialog({ training, handleChange }) {
+  return (
+    <div>
+      <DialogContent>
+        <TextField
+          autoFocus
+          required
+          name='date'
+          label='Date'
+          type='text'
+          fullWidth
+          variant='standard'
+          value={training.date}
+          onChange={handleChange}
+        />
+        <TextField
+          required
+          name='activity'
+          label='Activity'
+          type='text'
+          fullWidth
+          variant='standard'
+          value={training.activity}
+          onChange={handleChange}
+        />
+        <TextField
+          required
+          name='duration'
+          label='Duration'
+          type='text'
+          fullWidth
+          variant='standard'
+          value={training.duration}
+          onChange={handleChange}
+        />
+        <TextField
+          required
+          name='customer'
+          label='Customer'
+          type='text'
+          fullWidth
+          variant='standard'
+          value={training.customer}
+          onChange={handleChange}
+        />
+      </DialogContent>
+    </div>
+  );
+}

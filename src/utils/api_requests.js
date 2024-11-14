@@ -49,6 +49,18 @@ const fetchCustomerTrainings = async () => {
   }
 };
 
+const addCustomerTraining = async (training) => {
+  const config = {
+    headers: { "Content-Type": "application/json" },
+  };
+
+  try {
+    await axios.post(API_URL + "/trainings", training, config);
+  } catch (error) {
+    console.log("addCustomerTraining error: " + error);
+  }
+};
+
 export {
   // Export customer API requests
   fetchCustomers,
@@ -58,4 +70,5 @@ export {
 
   // Export training API requests
   fetchCustomerTrainings,
+  addCustomerTraining,
 };
