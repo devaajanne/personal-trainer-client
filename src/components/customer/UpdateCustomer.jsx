@@ -38,7 +38,7 @@ export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
   };
 
   return (
-    <>
+    <div>
       <Button onClick={handleOpen}>Update</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Update customer info</DialogTitle>
@@ -48,6 +48,6 @@ export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
           <Button onClick={handleSave}>Save</Button>
         </DialogActions>
       </Dialog>
-    </>
+    </div>
   );
 }

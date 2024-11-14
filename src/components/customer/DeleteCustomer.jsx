@@ -27,7 +27,7 @@ export default function DeleteCustomer({ customerURL, reloadCustomers }) {
   };
 
   return (
-    <>
+    <div>
       <Button onClick={handleOpen}>Delete</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Delete customer</DialogTitle>
@@ -40,6 +40,6 @@ export default function DeleteCustomer({ customerURL, reloadCustomers }) {
           <Button onClick={handleDelete}>Delete</Button>
         </DialogActions>
       </Dialog>
-    </>
+    </div>
   );
 }
