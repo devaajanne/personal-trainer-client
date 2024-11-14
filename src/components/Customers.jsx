@@ -41,7 +41,7 @@ export default function Customers() {
       headerName: "",
       field: "_links.self.href",
       sortable: false,
-      filder: false,
+      filter: false,
       cellRenderer: (params) => (
         <UpdateCustomer
           currentCustomer={params.data}
