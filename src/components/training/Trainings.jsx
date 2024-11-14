@@ -40,12 +40,13 @@ export default function Trainings() {
     },
   ]);
 
+  const fetchCustomerTrainingData = async () => {
+    const customerTrainingsData = await fetchCustomerTrainings();
+    setCustomerTrainings(customerTrainingsData);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const customerTrainingData = await fetchCustomerTrainings();
-      setCustomerTrainings(customerTrainingData);
-    };
-    fetchData();
+    fetchCustomerTrainingData();
   }, []);
 
   return (
