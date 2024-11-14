@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchCustomers } from "../utils/api_requests";
 import AddCustomer from "./AddCustomer";
 import UpdateCustomer from "./UpdateCustomer";
+import DeleteCustomer from "./DeleteCustomer";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -45,6 +46,18 @@ export default function Customers() {
       cellRenderer: (params) => (
         <UpdateCustomer
           currentCustomer={params.data}
+          reloadCustomers={fetchCustomerData}
+        />
+      ),
+    },
+    {
+      headerName: "",
+      field: "_links.self.href",
+      sortable: false,
+      filter: false,
+      cellRenderer: (params) => (
+        <DeleteCustomer
+          customerURL={params.data._links.self.href}
           reloadCustomers={fetchCustomerData}
         />
       ),
