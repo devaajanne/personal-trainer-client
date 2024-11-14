@@ -13,8 +13,12 @@ const fetchCustomers = async () => {
 };
 
 const addCustomer = async (customer) => {
+  const config = {
+    headers: { "Content-Type": "application/json" },
+  };
+
   try {
-    await axios.post(API_URL + "/customers", customer);
+    await axios.post(API_URL + "/customers", customer, config);
   } catch (error) {
     console.log("addCustomer error: " + error);
   }
