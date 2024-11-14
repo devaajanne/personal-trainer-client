@@ -32,6 +32,14 @@ const updateCustomer = async (customerURL, customer) => {
   }
 };
 
+const deleteCustomer = async (customerURL) => {
+  try {
+    await axios.delete(customerURL);
+  } catch (error) {
+    console.log("deleteCustomer error: " + error);
+  }
+};
+
 const fetchCustomerTrainings = async () => {
   try {
     const response = await axios.get(API_URL + "/gettrainings");
@@ -41,4 +49,4 @@ const fetchCustomerTrainings = async () => {
   }
 };
 
-export { fetchCustomers, fetchCustomerTrainings, addCustomer, updateCustomer };
+export { fetchCustomers, fetchCustomerTrainings, addCustomer, updateCustomer, deleteCustomer};
