@@ -1,6 +1,6 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
-import { fetchCustomers, addCustomer } from "../utils/api_requests";
+import { fetchCustomers } from "../utils/api_requests";
 import AddCustomer from "./AddCustomer";
 
 import "ag-grid-community/styles/ag-grid.css";
@@ -49,10 +49,7 @@ export default function Customers() {
 
   return (
     <div>
-      <AddCustomer
-        addCustomer={addCustomer}
-        reloadCustomers={fetchCustomerData}
-      />
+      <AddCustomer reloadCustomers={fetchCustomerData} />
       <div className='ag-theme-material' style={{ width: 1500, height: 1500 }}>
         <AgGridReact rowData={customers} columnDefs={columnDefs} />
       </div>

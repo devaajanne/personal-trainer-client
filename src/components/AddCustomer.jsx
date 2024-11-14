@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Dialog, DialogTitle, DialogActions } from "@mui/material";
 import Button from "@mui/material/Button";
 import CustomerDialog from "./CustomerDialog";
+import { addCustomer } from "../utils/api_requests";
 
-export default function AddCustomer({ addCustomer, reloadCustomers }) {
+export default function AddCustomer({ reloadCustomers }) {
   const [customer, setCustomer] = useState({
     firstname: "",
     lastname: "",
@@ -37,8 +38,8 @@ export default function AddCustomer({ addCustomer, reloadCustomers }) {
     });
   };
 
-  const handleSave = () => {
-    addCustomer(customer);
+  const handleSave = async () => {
+    await addCustomer(customer); // Wait for POST request to finish before reloading to ensure rerender
     reloadCustomers();
     handleClose();
   };
