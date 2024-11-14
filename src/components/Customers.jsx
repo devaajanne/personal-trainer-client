@@ -2,6 +2,7 @@ import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
 import { fetchCustomers } from "../utils/api_requests";
 import AddCustomer from "./AddCustomer";
+import UpdateCustomer from "./UpdateCustomer";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -36,6 +37,18 @@ export default function Customers() {
     { headerName: "City", field: "city", filter: true, floatingFilter: true },
     { headerName: "Email", field: "email", filter: true, floatingFilter: true },
     { headerName: "Phone", field: "phone", filter: true, floatingFilter: true },
+    {
+      headerName: "",
+      field: "_links.self.href",
+      sortable: false,
+      filder: false,
+      cellRenderer: (params) => (
+        <UpdateCustomer
+          currentCustomer={params.data}
+          reloadCustomers={fetchCustomerData}
+        />
+      ),
+    },
   ]);
 
   const fetchCustomerData = async () => {
