@@ -76,7 +76,7 @@ export default function Customers() {
   return (
     <div>
       <AddCustomer reloadCustomers={fetchCustomerData} />
-      <div className='ag-theme-material' style={{ width: 1500, height: 1500 }}>
+      <div className='ag-theme-material' style={{ width: 1700, height: 1500 }}>
         <AgGridReact rowData={customers} columnDefs={columnDefs} />
       </div>
     </div>
