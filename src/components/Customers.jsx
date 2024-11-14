@@ -1,6 +1,7 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
-import { fetchCustomers} from "../utils/api_requests";
+import { fetchCustomers, addCustomer } from "../utils/api_requests";
+import AddCustomer from "./AddCustomer";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -37,21 +38,23 @@ export default function Customers() {
     { headerName: "Phone", field: "phone", filter: true, floatingFilter: true },
   ]);
 
+  const fetchCustomerData = async () => {
+    const customerData = await fetchCustomers();
+    setCustomers(customerData);
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      const customerData = await fetchCustomers();
-      setCustomers(customerData);
-    };
-    fetchData();
+    fetchCustomerData();
   }, []);
 
   return (
     <div>
+      <AddCustomer
+        addCustomer={addCustomer}
+        reloadCustomers={fetchCustomerData}
+      />
       <div className='ag-theme-material' style={{ width: 1500, height: 1500 }}>
-        <AgGridReact
-          rowData={customers}
-          columnDefs={columnDefs}
-        />
+        <AgGridReact rowData={customers} columnDefs={columnDefs} />
       </div>
     </div>
   );
