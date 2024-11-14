@@ -13,7 +13,7 @@ export default function Trainings() {
       headerName: "Date",
       field: "date",
       valueFormatter: (params) =>
-        dayjs(params.value).format("DD.MM.YYYY hh:mm"),
+        dayjs(params.value).format("DD.MM.YYYY HH:mm"),
       filter: true,
       floatingFilter: true,
     },
