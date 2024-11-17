@@ -1,20 +1,27 @@
 import { TextField, DialogContent } from "@mui/material";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import dayjs from "dayjs";
+import "dayjs/locale/fi";
 
 export default function TrainingDialog({ training, handleChange }) {
+  const handleDateChange = (newValue) => {
+    handleChange({
+      target: { name: "date", value: dayjs(newValue).toISOString() },
+    });
+  };
+
   return (
     <div>
       <DialogContent>
-        <TextField
-          autoFocus
-          required
-          name='date'
-          label='Date'
-          type='text'
-          fullWidth
-          variant='standard'
-          value={training.date}
-          onChange={handleChange}
-        />
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='fi'>
+          <DateTimePicker
+            label='Date and time'
+            value={training.date ? dayjs(training.date) : null}
+            onChange={handleDateChange}
+          />
+        </LocalizationProvider>
         <TextField
           required
           name='activity'
