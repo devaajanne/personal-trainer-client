@@ -36,6 +36,9 @@ export default function TrainingDialog({ training, handleChange }) {
       <DialogContent>
         <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='fi'>
           <DateTimePicker
+            autoFocus
+            required
+            name='date'
             label='Date and time'
             value={training.date ? dayjs(training.date) : null}
             onChange={handleDateChange}
