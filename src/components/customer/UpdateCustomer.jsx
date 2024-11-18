@@ -20,15 +20,6 @@ export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
 
   const handleClose = () => {
     setOpen(false);
-    setCustomer({
-      firstname: "",
-      lastname: "",
-      email: "",
-      phone: "",
-      streetaddress: "",
-      postcode: "",
-      city: "",
-    });
   };
 
   const handleSave = async () => {
