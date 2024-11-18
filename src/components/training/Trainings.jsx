@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { fetchCustomerTrainings } from "../../utils/api_requests";
 import dayjs from "dayjs";
 import AddCustomerTraining from "./AddCustomerTraining";
+import DeleteCustomerTraining from "./DeleteCustomerTraining";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -38,6 +39,18 @@ export default function Trainings() {
       },
       filter: true,
       floatingFilter: true,
+    },
+    {
+      headerName: "",
+      field: "_links.self.href",
+      sortable: false,
+      filter: false,
+      cellRenderer: (params) => (
+        <DeleteCustomerTraining
+          customerTrainingId={params.data.id}
+          reloadCustomerTrainings={fetchCustomerTrainingData}
+        />
+      ),
     },
   ]);
 
