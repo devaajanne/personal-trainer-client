@@ -65,7 +65,17 @@ const addCustomerTraining = async (training) => {
   }
 };
 
+const deleteCustomerTraining = async (customerTrainingURL) => {
+  try {
+    await axios.delete(customerTrainingURL);
+  } catch (error) {
+    console.log("deleteTrainingCustomer error: " + error);
+  }
+};
+
 export {
+  API_URL,
+
   // Export customer API requests
   fetchCustomers,
   addCustomer,
@@ -75,4 +85,5 @@ export {
   // Export training API requests
   fetchCustomerTrainings,
   addCustomerTraining,
+  deleteCustomerTraining,
 };
