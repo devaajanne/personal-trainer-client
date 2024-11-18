@@ -10,7 +10,10 @@ import { API_URL } from "../../utils/api_requests";
 
 import { deleteCustomerTraining } from "../../utils/api_requests";
 
-export default function DeleteCustomerTraining({ customerTrainingId, reloadCustomerTrainings }) {
+export default function DeleteCustomerTraining({
+  customerTrainingId,
+  reloadCustomerTrainings,
+}) {
   const [open, setOpen] = useState(false);
   const customerTrainingURL = API_URL + "/trainings/" + customerTrainingId;
 
@@ -30,7 +33,9 @@ export default function DeleteCustomerTraining({ customerTrainingId, reloadCusto
 
   return (
     <div>
-      <Button onClick={handleOpen}>Delete</Button>
+      <Button onClick={handleOpen} color='error'>
+        Delete
+      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Delete customer training</DialogTitle>
         <DialogContent>
@@ -38,7 +43,7 @@ export default function DeleteCustomerTraining({ customerTrainingId, reloadCusto
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleDelete}>Delete</Button>
+          <Button onClick={handleDelete} color='error'>Delete</Button>
         </DialogActions>
       </Dialog>
     </div>
