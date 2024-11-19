@@ -1,7 +1,7 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
 import { fetchCustomerTrainings } from "../../utils/api_requests";
-import dayjs from "dayjs";
+import { DateTime } from "luxon";
 import AddCustomerTraining from "./AddCustomerTraining";
 import DeleteCustomerTraining from "./DeleteCustomerTraining";
 
@@ -15,7 +15,7 @@ export default function Trainings() {
       headerName: "Date",
       field: "date",
       valueFormatter: (params) =>
-        dayjs(params.value).format("DD.MM.YYYY HH:mm"),
+        DateTime.fromISO(params.value).toFormat("d.MM.yyyy HH:mm"),
       filter: true,
       floatingFilter: true,
     },

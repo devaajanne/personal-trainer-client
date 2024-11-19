@@ -8,18 +8,20 @@ import {
   FormControl,
 } from "@mui/material";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
+import { DateTime } from "luxon";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import dayjs from "dayjs";
-import "dayjs/locale/fi";
 import { fetchCustomers } from "../../utils/api_requests";
+import Trainings from "./Trainings";
 
 export default function TrainingDialog({ training, handleChange }) {
   const [customers, setCustomers] = useState([]);
+
   const handleDateChange = (newValue) => {
     handleChange({
-      target: { name: "date", value: dayjs(newValue).toISOString() },
+      target: { name: "date", value: newValue.toISO() },
     });
+    console.log("HandleDateChange training.date: " + training.date);
   };
 
   const fetchCustomerData = async () => {
@@ -34,13 +36,15 @@ export default function TrainingDialog({ training, handleChange }) {
   return (
     <div>
       <DialogContent>
-        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='fi'>
+        <LocalizationProvider dateAdapter={AdapterLuxon} adapterLocale='fi'>
           <DateTimePicker
             autoFocus
             required
             name='date'
             label='Date and time'
-            value={training.date ? dayjs(training.date) : null}
+            value={
+              training.date ? DateTime.fromISO(training.date) : null
+            }
             onChange={handleDateChange}
           />
         </LocalizationProvider>
