@@ -6,7 +6,7 @@ import App from "./App.jsx";
 import Home from "./components/Home.jsx";
 import Customers from "./components/customer/Customers.jsx";
 import Trainings from "./components/training/Trainings.jsx";
-import Calendar from "./components/Calendar.jsx";
+import TrainingCalendar from "./components/TrainingCalendar.jsx";
 import Statistics from "./components/Statistics.jsx";
 import Error from "./components/Error.jsx";
 
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/calendar",
-        element: <Calendar />,
+        element: <TrainingCalendar />,
       },
       {
         path: "/statistics",
