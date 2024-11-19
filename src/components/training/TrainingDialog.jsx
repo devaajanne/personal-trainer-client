@@ -21,7 +21,6 @@ export default function TrainingDialog({ training, handleChange }) {
     handleChange({
       target: { name: "date", value: newValue.toISO() },
     });
-    console.log("HandleDateChange training.date: " + training.date);
   };
 
   const fetchCustomerData = async () => {
