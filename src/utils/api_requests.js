@@ -44,6 +44,15 @@ const deleteCustomer = async (customerURL) => {
   }
 };
 
+const fetchTrainings = async () => {
+  try {
+    const response = await axios.get(API_URL + "/trainings");
+    return response.data;
+  } catch {
+    console.log("fetchTrainings error: " + error);
+  }
+};
+
 const fetchCustomerTrainings = async () => {
   try {
     const response = await axios.get(API_URL + "/gettrainings");
@@ -83,6 +92,7 @@ export {
   deleteCustomer,
 
   // Export training API requests
+  fetchTrainings,
   fetchCustomerTrainings,
   addCustomerTraining,
   deleteCustomerTraining,
