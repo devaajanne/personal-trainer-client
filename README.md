@@ -8,3 +8,6 @@ Used libraries:
 - Material UI (for UI and visuals)
 - React Router (for navigation)
 - Axios (for API requests)
+- Luxon (for dates)
+- Big Calendar (for calendar views)
+- React CSV (for csv exports)
