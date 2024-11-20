@@ -40,19 +40,23 @@ export default function Statistics() {
 
   return (
     <div>
-      <ResponsiveContainer width="100%" height={500}>
-      <BarChart data={data} margin={{top: 20, left: 10}}>
-        <CartesianGrid strokeDasharray='3 3' />
-        <XAxis dataKey='activity'></XAxis>
-        <YAxis
-          label={{ value: "Duration (min)", angle: -90, position: "insideLeft" }}
-        />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey='totalDuration' fill='#2196f3'>
-          <LabelList dataKey='totalDuration' position='top' />
-        </Bar>
-      </BarChart>
+      <ResponsiveContainer width='100%' height={750}>
+        <BarChart data={data} margin={{ top: 20, left: 10 }}>
+          <CartesianGrid strokeDasharray='3 3' />
+          <XAxis dataKey='activity'></XAxis>
+          <YAxis
+            label={{
+              value: "Duration (min)",
+              angle: -90,
+              position: "insideLeft",
+            }}
+          />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey='totalDuration' fill='#2196f3'>
+            <LabelList dataKey='totalDuration' position='top' />
+          </Bar>
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );
