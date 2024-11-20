@@ -4,6 +4,7 @@ import { fetchCustomers } from "../../utils/api_requests";
 import AddCustomer from "./AddCustomer";
 import UpdateCustomer from "./UpdateCustomer";
 import DeleteCustomer from "./DeleteCustomer";
+import ExportCustomersCSV from "./ExportCustomersCSV";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -76,6 +77,7 @@ export default function Customers() {
   return (
     <div>
       <AddCustomer reloadCustomers={fetchCustomerData} />
+      <ExportCustomersCSV customers={customers}/>
       <div className='ag-theme-material' style={{ width: 1700, height: 1500 }}>
         <AgGridReact rowData={customers} columnDefs={columnDefs} />
       </div>
