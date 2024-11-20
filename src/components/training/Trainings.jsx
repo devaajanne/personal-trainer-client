@@ -4,6 +4,7 @@ import { fetchCustomerTrainings } from "../../utils/api_requests";
 import { DateTime } from "luxon";
 import AddCustomerTraining from "./AddCustomerTraining";
 import DeleteCustomerTraining from "./DeleteCustomerTraining";
+import Stack from "@mui/material/Stack";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
@@ -65,9 +66,11 @@ export default function Trainings() {
 
   return (
     <div>
-      <AddCustomerTraining
-        reloadCustomerTrainings={fetchCustomerTrainingData}
-      />
+      <Stack direction='row'>
+        <AddCustomerTraining
+          reloadCustomerTrainings={fetchCustomerTrainingData}
+        />
+      </Stack>
       <div className='ag-theme-material' style={{ width: 1500, height: 1500 }}>
         <AgGridReact rowData={customerTrainings} columnDefs={columnDefs} />
       </div>
