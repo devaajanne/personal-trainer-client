@@ -11,6 +11,7 @@ import {
   Bar,
   Label,
   LabelList,
+  ResponsiveContainer,
 } from "recharts";
 
 export default function Statistics() {
@@ -29,19 +30,18 @@ export default function Statistics() {
   useEffect(() => {
     if (trainings.length > 0) {
       const dataGrouped = _.groupBy(trainings, "activity");
-      console.log(dataGrouped);
       const dataSummed = _.map(dataGrouped, (activityList, activityname) => ({
         activity: activityname,
         totalDuration: _.sumBy(activityList, "duration"),
       }));
-      console.log(dataSummed);
       setData(dataSummed);
     }
   }, [trainings]);
 
   return (
     <div>
-      <BarChart width={1000} height={500} data={data} margin={{top: 20, left: 10}}>
+      <ResponsiveContainer width="100%" height={500}>
+      <BarChart data={data} margin={{top: 20, left: 10}}>
         <CartesianGrid strokeDasharray='3 3' />
         <XAxis dataKey='activity'></XAxis>
         <YAxis
@@ -53,6 +53,7 @@ export default function Statistics() {
           <LabelList dataKey='totalDuration' position='top' />
         </Bar>
       </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }

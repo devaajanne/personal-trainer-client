@@ -12,39 +12,27 @@ import "ag-grid-community/styles/ag-theme-material.css";
 
 export default function Customers() {
   const [customers, setCustomers] = useState([]);
+  const defaultColumnDefs = {
+    filter: true,
+    floatingFilter: true,
+    sortable: true,
+    resizable: true,
+  };
+
   const [columnDefs, setColumnDefs] = useState([
-    {
-      headerName: "First name",
-      field: "firstname",
-      filter: true,
-      floatingFilter: true,
-    },
-    {
-      headerName: "Last name",
-      field: "lastname",
-      filter: true,
-      floatingFilter: true,
-    },
-    {
-      headerName: "Street address",
-      field: "streetaddress",
-      filter: true,
-      floatingFilter: true,
-    },
-    {
-      headerName: "Post code",
-      field: "postcode",
-      filter: true,
-      floatingFilter: true,
-    },
-    { headerName: "City", field: "city", filter: true, floatingFilter: true },
-    { headerName: "Email", field: "email", filter: true, floatingFilter: true },
-    { headerName: "Phone", field: "phone", filter: true, floatingFilter: true },
+    { headerName: "First name", field: "firstname" },
+    { headerName: "Last name", field: "lastname" },
+    { headerName: "Street address", field: "streetaddress" },
+    { headerName: "Post code", field: "postcode" },
+    { headerName: "City", field: "city" },
+    { headerName: "Email", field: "email" },
+    { headerName: "Phone", field: "phone" },
     {
       headerName: "",
       field: "_links.self.href",
       sortable: false,
       filter: false,
+      resizable: false,
       cellRenderer: (params) => (
         <UpdateCustomer
           currentCustomer={params.data}
@@ -57,6 +45,7 @@ export default function Customers() {
       field: "_links.self.href",
       sortable: false,
       filter: false,
+      resizable: false,
       cellRenderer: (params) => (
         <DeleteCustomer
           customerURL={params.data._links.self.href}
@@ -65,6 +54,11 @@ export default function Customers() {
       ),
     },
   ]);
+
+  const autoSizeStrategy = {
+    type: "fitGridWidth",
+    defaultMinWidth: 100,
+  };
 
   const fetchCustomerData = async () => {
     const customerData = await fetchCustomers();
@@ -81,8 +75,15 @@ export default function Customers() {
         <AddCustomer reloadCustomers={fetchCustomerData} />
         <ExportCustomersCSV customers={customers} />
       </Stack>
-      <div className='ag-theme-material' style={{ width: 1700, height: 1500 }}>
-        <AgGridReact rowData={customers} columnDefs={columnDefs} />
+      <div
+        className='ag-theme-material'
+        style={{ width: "100%", height: "80vh" }}>
+        <AgGridReact
+          rowData={customers}
+          defaultColDef={defaultColumnDefs}
+          columnDefs={columnDefs}
+          autoSizeStrategy={autoSizeStrategy}
+        />
       </div>
     </div>
   );

@@ -11,27 +11,22 @@ import "ag-grid-community/styles/ag-theme-material.css";
 
 export default function Trainings() {
   const [customerTrainings, setCustomerTrainings] = useState([]);
+  const defaultColumnDefs = {
+    filter: true,
+    floatingFilter: true,
+    sortable: true,
+    resizable: true,
+  };
+
   const [columnDefs, setColumnDefs] = useState([
     {
       headerName: "Date",
       field: "date",
       valueFormatter: (params) =>
         DateTime.fromISO(params.value).toFormat("d.MM.yyyy HH:mm"),
-      filter: true,
-      floatingFilter: true,
     },
-    {
-      headerName: "Duration",
-      field: "duration",
-      filter: true,
-      floatingFilter: true,
-    },
-    {
-      headerName: "Activity",
-      field: "activity",
-      filter: true,
-      floatingFilter: true,
-    },
+    { headerName: "Duration", field: "duration" },
+    { headerName: "Activity", field: "activity" },
     {
       headerName: "Customer",
       field: "customer",
@@ -55,6 +50,11 @@ export default function Trainings() {
     },
   ]);
 
+  const autoSizeStrategy = {
+    type: "fitGridWidth",
+    defaultMinWidth: 100,
+  };
+
   const fetchCustomerTrainingData = async () => {
     const customerTrainingsData = await fetchCustomerTrainings();
     setCustomerTrainings(customerTrainingsData);
@@ -71,8 +71,13 @@ export default function Trainings() {
           reloadCustomerTrainings={fetchCustomerTrainingData}
         />
       </Stack>
-      <div className='ag-theme-material' style={{ width: 1500, height: 1500 }}>
-        <AgGridReact rowData={customerTrainings} columnDefs={columnDefs} />
+      <div className='ag-theme-material' style={{ width: "100%", height: "80vh" }}>
+        <AgGridReact
+          rowData={customerTrainings}
+          defaultColDef={defaultColumnDefs}
+          columnDefs={columnDefs}
+          autoSizeStrategy={autoSizeStrategy}
+        />
       </div>
     </div>
   );
