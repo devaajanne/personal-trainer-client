@@ -22,7 +22,7 @@ export default function ExportCustomersCSV({ customers }) {
         headers={headers}
         data={customers}
         separator={";"}>
-        Export
+        Export customers
       </Button>
     </div>
   );
