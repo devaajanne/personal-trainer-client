@@ -41,10 +41,12 @@ export default function Statistics() {
 
   return (
     <div>
-      <BarChart width={1000} height={500} data={data}>
+      <BarChart width={1000} height={500} data={data} margin={{top: 20, left: 10}}>
         <CartesianGrid strokeDasharray='3 3' />
         <XAxis dataKey='activity'></XAxis>
-        <YAxis />
+        <YAxis
+          label={{ value: "Duration (min)", angle: -90, position: "insideLeft" }}
+        />
         <Tooltip />
         <Legend />
         <Bar dataKey='totalDuration' fill='#2196f3'>
