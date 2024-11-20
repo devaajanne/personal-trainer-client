@@ -9,7 +9,9 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 export default function TrainingCalendar() {
   const [calendarObjects, setCalendarObjects] = useState([]);
-  const lLocalizer = luxonLocalizer(DateTime);
+  const lLocalizer = luxonLocalizer(DateTime, {
+    firstDayOfWeek: 1,
+  });
 
   const fetchCustomerTrainingData = async () => {
     const customerTrainingsData = await fetchCustomerTrainings();
