@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App.jsx";
 import Home from "./components/Home.jsx";
@@ -12,9 +12,10 @@ import Error from "./components/Error.jsx";
 
 import "./Stylings/index.css";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
+    basename: "/personal-trainer-client",
     element: <App />,
     errorElement: <Error />,
     children: [
