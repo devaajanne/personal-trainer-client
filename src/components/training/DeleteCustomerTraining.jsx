@@ -6,6 +6,7 @@ import {
   DialogActions,
 } from "@mui/material";
 import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { API_URL } from "../../utils/api_requests";
 
 import { deleteCustomerTraining } from "../../utils/api_requests";
@@ -33,7 +34,7 @@ export default function DeleteCustomerTraining({
 
   return (
     <div>
-      <Button onClick={handleOpen} color='error'>
+      <Button onClick={handleOpen} color='error' startIcon={<DeleteIcon />}>
         Delete
       </Button>
       <Dialog open={open} onClose={handleClose}>
@@ -43,7 +44,9 @@ export default function DeleteCustomerTraining({
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleDelete} color='error'>Delete</Button>
+          <Button onClick={handleDelete} color='error'>
+            Delete
+          </Button>
         </DialogActions>
       </Dialog>
     </div>

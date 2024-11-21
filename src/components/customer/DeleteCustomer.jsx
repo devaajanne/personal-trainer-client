@@ -6,6 +6,7 @@ import {
   DialogActions,
 } from "@mui/material";
 import Button from "@mui/material/Button";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 import { deleteCustomer } from "../../utils/api_requests";
 
@@ -28,7 +29,7 @@ export default function DeleteCustomer({ customerURL, reloadCustomers }) {
 
   return (
     <div>
-      <Button onClick={handleOpen} color='error'>Delete</Button>
+      <Button onClick={handleOpen} color='error' startIcon={<DeleteIcon />}>Delete</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Delete customer</DialogTitle>
         <DialogContent>
