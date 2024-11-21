@@ -7,7 +7,7 @@ import { Calendar, luxonLocalizer, Views } from "react-big-calendar";
 import { DateTime } from "luxon";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-export default function TrainingCalendar() {
+export default function TrainingCalendar({ defaultView, views }) {
   const [calendarObjects, setCalendarObjects] = useState([]);
   const lLocalizer = luxonLocalizer(DateTime, {
     firstDayOfWeek: 1,
@@ -42,8 +42,8 @@ export default function TrainingCalendar() {
         events={calendarObjects}
         startAccessor='start'
         endAccessor='end'
-        defaultView={Views.WEEK}
-        views={[Views.DAY, Views.WEEK, Views.MONTH, Views.AGENDA]}
+        defaultView={defaultView}
+        views={views}
         min={new Date(2000, 0, 1, 8, 0, 0)}
         max={new Date(2000, 0, 1, 20, 0, 0)}
       />

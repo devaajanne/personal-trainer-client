@@ -11,6 +11,7 @@ import Statistics from "./components/Statistics.jsx";
 import Error from "./components/Error.jsx";
 
 import "./Stylings/index.css";
+import {defaultView, views} from "./utils/consts.jsx"
 
 const router = createHashRouter([
   {
@@ -33,7 +34,7 @@ const router = createHashRouter([
       },
       {
         path: "/calendar",
-        element: <TrainingCalendar />,
+        element: <TrainingCalendar defaultView={defaultView} views={views}/>,
       },
       {
         path: "/statistics",
