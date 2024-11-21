@@ -18,6 +18,7 @@ export default function TrainingDialog({ training, handleChange }) {
 
   const handleDateChange = (newValue) => {
     handleChange({
+      // Here we convert datetime object to ISO8601 string, so we can set it to the training state
       target: { name: "date", value: newValue.toISO() },
     });
   };
@@ -41,6 +42,7 @@ export default function TrainingDialog({ training, handleChange }) {
             name='date'
             label='Date and time'
             value={
+            // Here we convert ISO8601 string to datetime, so we can place it to MUI datetime picker
               training.date ? DateTime.fromISO(training.date) : null
             }
             onChange={handleDateChange}
