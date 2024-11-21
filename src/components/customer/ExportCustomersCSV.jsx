@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import { CSVLink } from "react-csv";
+import DownloadIcon from "@mui/icons-material/Download";
 
 export default function ExportCustomersCSV({ customers }) {
   const headers = [
@@ -18,6 +19,7 @@ export default function ExportCustomersCSV({ customers }) {
   return (
     <div>
       <Button
+        startIcon={<DownloadIcon />}
         component={CSVLink}
         headers={headers}
         data={customers}

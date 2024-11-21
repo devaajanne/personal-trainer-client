@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Dialog, DialogTitle, DialogActions } from "@mui/material";
 import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
+
 import TrainingDialog from "./TrainingDialog";
 import { addCustomerTraining } from "../../utils/api_requests";
 
@@ -40,7 +42,9 @@ export default function AddCustomerTraining({ reloadCustomerTrainings }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Add customer training</Button>
+      <Button onClick={handleOpen} startIcon={<AddIcon />}>
+        Add customer training
+      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add a new customer training</DialogTitle>
         <TrainingDialog training={training} handleChange={handleChange} />

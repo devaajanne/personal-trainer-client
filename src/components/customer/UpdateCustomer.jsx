@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogTitle, DialogActions } from "@mui/material";
 import Button from "@mui/material/Button";
+import EditIcon from '@mui/icons-material/Edit';
 import CustomerDialog from "./CustomerDialog";
 import { updateCustomer } from "../../utils/api_requests";
 
@@ -30,7 +31,7 @@ export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Update</Button>
+      <Button onClick={handleOpen} startIcon={<EditIcon/>}>Update</Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Update customer info</DialogTitle>
         <CustomerDialog customer={customer} handleChange={handleChange} />
