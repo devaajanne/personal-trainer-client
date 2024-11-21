@@ -1,9 +1,11 @@
 import { useState } from "react";
+
+import { addCustomer } from "../../utils/api_requests";
+import CustomerDialog from "./CustomerDialog";
+
 import { Dialog, DialogTitle, DialogActions } from "@mui/material";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
-import CustomerDialog from "./CustomerDialog";
-import { addCustomer } from "../../utils/api_requests";
 
 export default function AddCustomer({ reloadCustomers }) {
   const [customer, setCustomer] = useState({
@@ -40,7 +42,8 @@ export default function AddCustomer({ reloadCustomers }) {
   };
 
   const handleSave = async () => {
-    await addCustomer(customer); // Wait for POST request to finish before reloading to ensure rerender
+    // Wait for POST request to finish before reloading up-to-date data
+    await addCustomer(customer);
     reloadCustomers();
     handleClose();
   };

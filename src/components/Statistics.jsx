@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+
 import { fetchTrainings } from "../utils/api_requests";
+
 import _ from "lodash";
 import {
   BarChart,
@@ -9,7 +11,6 @@ import {
   Tooltip,
   Legend,
   Bar,
-  Label,
   LabelList,
   ResponsiveContainer,
 } from "recharts";

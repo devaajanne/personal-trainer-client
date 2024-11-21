@@ -1,9 +1,8 @@
-// Big Calendar
-// https://jquense.github.io/react-big-calendar/examples/
-
 import { useState, useEffect } from "react";
+
 import { fetchCustomerTrainings } from "../utils/api_requests";
-import { Calendar, luxonLocalizer, Views } from "react-big-calendar";
+
+import { Calendar, luxonLocalizer} from "react-big-calendar";
 import { DateTime } from "luxon";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -42,6 +41,7 @@ export default function TrainingCalendar({ defaultView, views }) {
         events={calendarObjects}
         startAccessor='start'
         endAccessor='end'
+        // defaultView and views are set depending on are we rendering the calendar on the Calendar page (all views) or on the Home page (only agenda view)
         defaultView={defaultView}
         views={views}
         min={new Date(2000, 0, 1, 8, 0, 0)}

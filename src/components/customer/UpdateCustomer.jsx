@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Dialog, DialogTitle, DialogActions } from "@mui/material";
-import Button from "@mui/material/Button";
-import EditIcon from '@mui/icons-material/Edit';
+
 import CustomerDialog from "./CustomerDialog";
 import { updateCustomer } from "../../utils/api_requests";
+
+import { Dialog, DialogTitle, DialogActions } from "@mui/material";
+import Button from "@mui/material/Button";
+import EditIcon from "@mui/icons-material/Edit";
 
 export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
   const [customer, setCustomer] = useState(currentCustomer);
@@ -24,14 +26,17 @@ export default function UpdateCustomer({ currentCustomer, reloadCustomers }) {
   };
 
   const handleSave = async () => {
-    await updateCustomer(customerURL, customer); // Wait for PUT request to finish before reloading to ensure rerender
+    // Wait for PUT request to finish before reloading up-to-date data
+    await updateCustomer(customerURL, customer);
     reloadCustomers();
     handleClose();
   };
 
   return (
     <div>
-      <Button onClick={handleOpen} startIcon={<EditIcon/>}>Update</Button>
+      <Button onClick={handleOpen} startIcon={<EditIcon />}>
+        Update
+      </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Update customer info</DialogTitle>
         <CustomerDialog customer={customer} handleChange={handleChange} />

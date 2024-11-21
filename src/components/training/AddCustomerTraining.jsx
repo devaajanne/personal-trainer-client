@@ -35,7 +35,8 @@ export default function AddCustomerTraining({ reloadCustomerTrainings }) {
   };
 
   const handleSave = async () => {
-    await addCustomerTraining(training); // Wait for POST request to finish before reloading to ensure rerender
+    // Wait for POST request to finish before reloading up-to-date data
+    await addCustomerTraining(training);
     reloadCustomerTrainings();
     handleClose();
   };

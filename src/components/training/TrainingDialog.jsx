@@ -12,7 +12,6 @@ import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 import { DateTime } from "luxon";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { fetchCustomers } from "../../utils/api_requests";
-import Trainings from "./Trainings";
 
 export default function TrainingDialog({ training, handleChange }) {
   const [customers, setCustomers] = useState([]);
@@ -74,6 +73,8 @@ export default function TrainingDialog({ training, handleChange }) {
             name='customer'
             value={training.customer}
             onChange={handleChange}>
+            {/*This map function lists all customers into a dropdown menu */}
+            {/*This way we can select a customer directly from the list */}
             {customers.map((customer) => (
               <MenuItem
                 key={customer._links.self.href}

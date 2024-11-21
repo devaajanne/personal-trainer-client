@@ -1,12 +1,13 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
+
 import { fetchCustomers } from "../../utils/api_requests";
 import AddCustomer from "./AddCustomer";
 import UpdateCustomer from "./UpdateCustomer";
 import DeleteCustomer from "./DeleteCustomer";
 import ExportCustomersCSV from "./ExportCustomersCSV";
-import Stack from "@mui/material/Stack";
 
+import Stack from "@mui/material/Stack";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
 

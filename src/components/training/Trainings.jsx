@@ -1,11 +1,12 @@
 import { AgGridReact } from "ag-grid-react";
 import { useState, useEffect } from "react";
 import { fetchCustomerTrainings } from "../../utils/api_requests";
-import { DateTime } from "luxon";
+
 import AddCustomerTraining from "./AddCustomerTraining";
 import DeleteCustomerTraining from "./DeleteCustomerTraining";
-import Stack from "@mui/material/Stack";
 
+import { DateTime } from "luxon";
+import Stack from "@mui/material/Stack";
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-material.css";
 

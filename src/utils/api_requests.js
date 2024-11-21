@@ -44,6 +44,7 @@ const deleteCustomer = async (customerURL) => {
   }
 };
 
+// This is to fetch traininigs without customer data
 const fetchTrainings = async () => {
   try {
     const response = await axios.get(API_URL + "/trainings");
@@ -53,6 +54,7 @@ const fetchTrainings = async () => {
   }
 };
 
+// This is to fetch traininigs with customer data
 const fetchCustomerTrainings = async () => {
   try {
     const response = await axios.get(API_URL + "/gettrainings");

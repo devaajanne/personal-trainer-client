@@ -27,7 +27,8 @@ export default function DeleteCustomerTraining({
   };
 
   const handleDelete = async () => {
-    await deleteCustomerTraining(customerTrainingURL); // Wait for DELETE request to finish before reloading to ensure rerender
+    // Wait for DELETE request to finish before reloading up-to-date data
+    await deleteCustomerTraining(customerTrainingURL);
     reloadCustomerTrainings();
     handleClose();
   };
@@ -37,7 +38,9 @@ export default function DeleteCustomerTraining({
       <Button onClick={handleOpen} color='error' startIcon={<DeleteIcon />}>
         Delete
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+
+      {/*We use Dialog instead of alert to confirm user's intent to delete the customer's training */}
+      <Dialog open={open} onClose={handleClose}> 
         <DialogTitle>Delete customer training</DialogTitle>
         <DialogContent>
           Are you sure you want to delete the customer's training?

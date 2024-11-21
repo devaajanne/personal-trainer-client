@@ -9,8 +9,6 @@ import Trainings from "./components/training/Trainings.jsx";
 import TrainingCalendar from "./components/TrainingCalendar.jsx";
 import Statistics from "./components/Statistics.jsx";
 import Error from "./components/Error.jsx";
-
-import "./Stylings/index.css";
 import {defaultView, views} from "./utils/consts.jsx"
 
 const router = createHashRouter([
@@ -34,6 +32,8 @@ const router = createHashRouter([
       },
       {
         path: "/calendar",
+        // Here we pass imported props, because this component shows different calendar views
+        // on Home and Calendar pages
         element: <TrainingCalendar defaultView={defaultView} views={views}/>,
       },
       {
